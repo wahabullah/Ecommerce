@@ -12,7 +12,10 @@ dotenv.config();
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+  origin: ["http://localhost:5173", "https://ecommerce-frontend-project-rose.vercel.app"],
+  credentials: true, // Adjust as needed for your frontend
+}));
 app.use(express.json());
 app.use("/api/products", productRoutes);
 app.use("/api/orders", orderRoutes);
